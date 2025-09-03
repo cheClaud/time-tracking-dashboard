@@ -3,6 +3,12 @@ import data from "./data.json";
 import jeremy from "./assets/images/image-jeremy.png";
 //import { ReactComponent as EllipsisIcon } from "./assets/images/icon-ellipsis.svg";
 import ellipsis from "./assets/images/icon-ellipsis.svg";
+import exercise from "./assets/images/icon-exercise.svg";
+import play from "./assets/images/icon-play.svg";
+import selfcare from "./assets/images/icon-self-care.svg";
+import social from "./assets/images/icon-social.svg";
+import study from "./assets/images/icon-study.svg";
+import work from "./assets/images/icon-work.svg";
 function App() {
   const [period, setPeriod] = useState("weekly");
 
@@ -49,7 +55,7 @@ function App() {
                   title === "Exercise" && "bg-emerald-400"
                 } ${title === "Social" && "bg-violet-400"} ${
                   title === "Self Care" && "bg-amber-300"
-                } pt-12 rounded-lg`}
+                } pt-12 rounded-lg relative`}
               >
                 <div className="p-5 md:p-3 lg:p-5 bg-indigo-950 rounded-lg">
                   <div className="flex justify-between items-center">
