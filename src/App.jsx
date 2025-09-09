@@ -9,6 +9,8 @@ import selfcare from "./assets/images/icon-self-care.svg";
 import social from "./assets/images/icon-social.svg";
 import study from "./assets/images/icon-study.svg";
 import work from "./assets/images/icon-work.svg";
+
+const svgImages = [work, play, study, exercise, social, selfcare];
 function App() {
   const [period, setPeriod] = useState("weekly");
 
@@ -43,8 +45,9 @@ function App() {
           </div>
         </div>
         <div className="grid gap-4 w-full py-2 md:col-span-2 md:grid-cols-2 lg:grid-cols-3 lg:col-span-3">
-          {data.map(({ title, timeframes }) => {
+          {data.map(({ title, timeframes }, index) => {
             const { current, previous } = timeframes[period];
+            const hangingImage = svgImages[index];
 
             return (
               <div
@@ -55,9 +58,9 @@ function App() {
                   title === "Exercise" && "bg-emerald-400"
                 } ${title === "Social" && "bg-violet-400"} ${
                   title === "Self Care" && "bg-amber-300"
-                } pt-12 rounded-lg relative`}
+                } pt-12 rounded-lg relative z-2`}
               >
-                <div className="p-5 md:p-3 lg:p-5 bg-indigo-950 rounded-lg">
+                <div className="p-5 md:p-3 lg:p-5 bg-indigo-950 rounded-lg z-2">
                   <div className="flex justify-between items-center">
                     <h2 className="text-sm font-medium mb-2">{title}</h2>
                     <img
@@ -72,6 +75,11 @@ function App() {
                       Last {period.slice(0, -2)} - {previous} hrs
                     </p>
                   </div>
+                  <img
+                    src={hangingImage}
+                    alt="image of activity"
+                    className="absolute top-2 right-5 z-0 w-12 h-12 opacity-40"
+                  />
                 </div>
               </div>
             );
