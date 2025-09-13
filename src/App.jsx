@@ -22,7 +22,7 @@ function App() {
             <img
               src={jeremy}
               alt="Logo"
-              className="py-1 pb-2 sm:pb-6 w-[70px] h-[70px] md:w-[105px] md:h-[105px] lg:w-[105px] lg:h-[105px] border-2 border-white-600 rounded-full"
+              className="w-[70px] h-[70px] md:w-[105px] md:h-[105px] lg:w-[105px] lg:h-[105px] border-2 border-white rounded-full object-cover"
             />
             <div className="md:py-8 lg:py-2  ">
               <p className="text-xs pt-4 sm:pt-0">Report for</p>
@@ -31,7 +31,7 @@ function App() {
             </div>
           </div>
           <div className="flex justify-between p-6 sm:pb-2 md:flex-col ">
-            {["daily", "weekly", "monthly"].map((piriod) => (
+            {["dayly", "weekly", "monthly"].map((piriod) => (
               <p
                 key={piriod}
                 onClick={() => setPeriod(piriod)}
@@ -58,9 +58,14 @@ function App() {
                   title === "Exercise" && "bg-emerald-400"
                 } ${title === "Social" && "bg-violet-400"} ${
                   title === "Self Care" && "bg-amber-300"
-                } pt-12 rounded-lg relative z-2`}
+                } pt-12 rounded-lg relative`}
               >
-                <div className="p-5 md:p-3 lg:p-5 bg-indigo-950 rounded-lg z-2">
+                <img
+                  src={hangingImage}
+                  alt="image of activity"
+                  className="absolute top-2 right-5 w-12 h-12 opacity-40"
+                />
+                <div className="p-5 md:p-3 lg:p-5 bg-indigo-950 rounded-lg relative z-10 ">
                   <div className="flex justify-between items-center">
                     <h2 className="text-sm font-medium mb-2">{title}</h2>
                     <img
@@ -75,11 +80,6 @@ function App() {
                       Last {period.slice(0, -2)} - {previous} hrs
                     </p>
                   </div>
-                  <img
-                    src={hangingImage}
-                    alt="image of activity"
-                    className="absolute top-2 right-5 z-0 w-12 h-12 opacity-40"
-                  />
                 </div>
               </div>
             );
