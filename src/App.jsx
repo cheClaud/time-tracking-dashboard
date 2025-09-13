@@ -31,7 +31,7 @@ function App() {
             </div>
           </div>
           <div className="flex justify-between p-6 sm:pb-2 md:flex-col ">
-            {["dayly", "weekly", "monthly"].map((piriod) => (
+            {["daily", "weekly", "monthly"].map((piriod) => (
               <p
                 key={piriod}
                 onClick={() => setPeriod(piriod)}
@@ -77,7 +77,7 @@ function App() {
                   <div className="flex justify-between md:flex-col">
                     <p className="text-4xl font-thin lg:pt-4">{current} hrs</p>
                     <p className="text-xs text-slate-400 pt-2">
-                      Last {period.slice(0, -2)} - {previous} hrs
+                      {`Last ${period !== 'daily'? period.slice(0, -2): 'day'} - ${previous} hrs`}
                     </p>
                   </div>
                 </div>
